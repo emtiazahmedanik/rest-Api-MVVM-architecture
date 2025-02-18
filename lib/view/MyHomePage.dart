@@ -38,19 +38,16 @@ class _MyHomePageState extends State<MyHomePage> {
               final email = user.email;
               final phone = user.phone;
               final nat = user.nat;
+              final name = "${user.name.title} ${user.name.firstName} ${user.name.lastName}";
+              final pic = user.picture.medium;
               return Column(
                 children: [
                   ListTile(
-                    title: Text(email),
-                    subtitle: Column(
-                      children: [
-                        Text(gender),
-                        Text(phone),
-                        Text(nat)
-                      ],
-                    ),
-                    leading: CircleAvatar(
-                      child: Text("$index"),
+                    title: Text(name,style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
+                    subtitle: Text(email),
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image.network(pic,fit: BoxFit.cover,),
                     ),
                   ),
                   Divider()
